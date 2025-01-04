@@ -1,0 +1,5 @@
+Bài tập về nhà của hôm này sẽ khó hơn nhé, và sẽ giúp các bạn chuẩn bị kĩ hơn cho các bữa sau.
+Bài tập về nhà suggestion nên làm:
+Gọi API https://dummy.restapiexample.com/api/v1/employees và trả về 1 slice các struct có thông tin trong đấy
+Viết 1 worker pool dựa trên ví dụ ở https://gobyexample.com/worker-pools, nhưng job là struct về người gồm các thông tin ở câu trên, job trả về lương chia cho tuổi của mỗi người
+Tìm hiểu thêm về https://gobyexample.com/time , https://gobyexample.com/time-formatting-parsing , https://gobyexample.com/string-formatting
