@@ -7,6 +7,7 @@ import (
 	"homework/ex4/pkg"
 	"net/http"
 	"strconv"
+	"golang.org/x/crypto/bcrypt"
 )
 var userMap = make(map[string]models.User)
 var userList []models.User
@@ -18,6 +19,7 @@ func main() {
 	http.HandleFunc("/login/", handlerLogin)
 	http.HandleFunc("/getUsers/", handleGetUserList)
 	http.HandleFunc("/getUser/", handleGetUserById)
+	http.HandleFunc("/editUser/", handleEditUser)
 
 	fmt.Println("Start server on localhost:8080 ...")
 	err := http.ListenAndServe(":8080", nil)
@@ -33,7 +35,6 @@ func LoadDataToMemory(){
 	for _, user := range userList {
 		userMap[user.Email] = user
 	}
-
 }
 
 // Create a new user
@@ -56,7 +57,10 @@ func handlerSignIn(w http.ResponseWriter, r *http.Request){
 			http.Error(w, "Email was exist on database", http.StatusBadRequest)
 		}
 
-		user := models.User{ID: len(userList) + 1, Name: name, Email: email, Password: password, Address: address}
+		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+		pkg.HandleError(err, "Cannot hash password")
+
+		user := models.User{ID: len(userList) + 1, Name: name, Email: email, Password: hashedPassword, Address: address}
 		userMap[email] = user
 
 		userList = append(userList, user)
@@ -88,11 +92,14 @@ func handlerLogin(w http.ResponseWriter, r *http.Request){
 			return
 		}
 
-		if user := userMap[email]; user.Password == password{
-			http.ServeFile(w, r, "ex4/static/home.html")
+		user := userMap[email]
+		err = bcrypt.CompareHashAndPassword(user.Password, []byte(password))
+
+		if err != nil{
+			http.Error(w, "Email or password was wrong", http.StatusBadRequest)
 			return
 		} else{
-			http.Error(w, "Email or password was wrong", http.StatusBadRequest)
+			http.ServeFile(w, r, "ex4/static/home.html")
 			return
 		}
 
@@ -132,5 +139,45 @@ func handleGetUserById(w http.ResponseWriter, r *http.Request){
 		w.WriteHeader(http.StatusOK)
 		w.Write(jsonData)
 
+	}
+}
+
+func handleEditUser(w http.ResponseWriter, r *http.Request){
+	if r.Method != http.MethodPut{
+		http.Error(w, "Unable request method", http.StatusBadRequest)
+		return
+	} else {
+		id, err:= strconv.Atoi(r.URL.Path[len("/editUser/"):])
+		pkg.HandleErrorForRequest(w, err, "Unable to fetch data from path")
+
+		if id > len(userList) || id <= 0{
+			http.Error(w, "Index is out of range", http.StatusBadRequest)
+		}
+
+		user := userList[id - 1]
+
+		err = r.ParseForm()
+		pkg.HandleErrorForRequest(w, err, "Unable to parse form")
+
+		name := r.FormValue("name")
+		email := r.FormValue("email")
+		address := r.FormValue("address")
+
+		if name == "" || email == "" || address == ""{
+			http.Error(w, "Please fill in all required fields", http.StatusBadRequest)
+		}
+
+		oldEmail := user.Email
+		user.Name = name
+		user.Email = email
+		user.Address = address
+		delete(userMap, oldEmail)
+		userMap[email] = user
+		userList[id-1] = user
+		pkg.LoadDataFromMemoryToFile(userList)
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusCreated)
+		json.NewEncoder(w).Encode(user)
 	}
 }

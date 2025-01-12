@@ -3,42 +3,42 @@
         "ID": 1,
         "Name": "John Doe",
         "Email": "john.doe@example.com",
-        "Password": "password123",
+        "Password": null,
         "Address": "123 Elm Street, Springfield, USA"
     },
     {
         "ID": 2,
         "Name": "Jane Smith",
         "Email": "jane.smith@example.com",
-        "Password": "securepass456",
+        "Password": null,
         "Address": "456 Maple Avenue, Metropolis, USA"
     },
     {
         "ID": 3,
         "Name": "Michael Johnson",
         "Email": "michael.johnson@example.com",
-        "Password": "mypassword789",
+        "Password": null,
         "Address": "789 Oak Lane, Gotham, USA"
     },
     {
         "ID": 4,
         "Name": "Emily Davis",
         "Email": "emily.davis@example.com",
-        "Password": "passw0rd321",
+        "Password": null,
         "Address": "321 Pine Road, Star City, USA"
     },
     {
         "ID": 5,
         "Name": "David Brown",
         "Email": "david.brown@example.com",
-        "Password": "letmein2023",
+        "Password": null,
         "Address": "654 Cedar Boulevard, Central City, USA"
     },
     {
         "ID": 6,
         "Name": "Sophia Wilson",
         "Email": "sophia.wilson@example.com",
-        "Password": "s0ph1aW!",
+        "Password": null,
         "Address": "987 Willow Street, Riverdale, USA"
     },
     {
@@ -52,14 +52,14 @@
         "ID": 8,
         "Name": "Isabella Martinez",
         "Email": "isabella.martinez@example.com",
-        "Password": "isabel@M123",
+        "Password": null,
         "Address": "444 Cypress Street, Greenfield, USA"
     },
     {
         "ID": 9,
         "Name": "Ethan Moore",
         "Email": "ethan.moore@example.com",
-        "Password": "eTh@nM00r3",
+        "Password": null,
         "Address": "555 Magnolia Boulevard, Brookhaven, USA"
     },
     {
@@ -73,70 +73,70 @@
         "ID": 11,
         "Name": "Liam Rodriguez",
         "Email": "liam.rodriguez@example.com",
-        "Password": "lRodriguez2024",
+        "Password": null,
         "Address": "777 Pineview Road, Ashville, USA"
     },
     {
         "ID": 12,
         "Name": "Mia Anderson",
         "Email": "mia.anderson@example.com",
-        "Password": "m!@Anderson",
+        "Password": null,
         "Address": "888 Cedar Court, Baytown, USA"
     },
     {
         "ID": 13,
         "Name": "Noah Thomas",
         "Email": "noah.thomas@example.com",
-        "Password": "N0ahThom@s",
+        "Password": null,
         "Address": "999 Aspen Lane, Edgewood, USA"
     },
     {
         "ID": 14,
         "Name": "Ava Jackson",
         "Email": "ava.jackson@example.com",
-        "Password": "Av@Jacks0n",
+        "Password": null,
         "Address": "111 Hickory Street, Clearwater, USA"
     },
     {
         "ID": 15,
         "Name": "Lucas White",
         "Email": "lucas.white@example.com",
-        "Password": "LWhite!2025",
+        "Password": null,
         "Address": "222 Chestnut Drive, Fairview, USA"
     },
     {
         "ID": 16,
         "Name": "Amelia Harris",
         "Email": "amelia.harris@example.com",
-        "Password": "Am3liaH@rris",
+        "Password": null,
         "Address": "333 Poplar Avenue, Lakeside, USA"
     },
     {
         "ID": 17,
         "Name": "Benjamin Lewis",
         "Email": "benjamin.lewis@example.com",
-        "Password": "BenLew2025",
+        "Password": null,
         "Address": "444 Sequoia Lane, Westfield, USA"
     },
     {
         "ID": 18,
         "Name": "Charlotte Walker",
         "Email": "charlotte.walker@example.com",
-        "Password": "CharW@lk3r",
+        "Password": null,
         "Address": "555 Elmwood Court, Northridge, USA"
     },
     {
         "ID": 19,
         "Name": "Henry Young",
         "Email": "henry.young@example.com",
-        "Password": "HenryY2023",
+        "Password": null,
         "Address": "666 Laurel Drive, Belmont, USA"
     },
     {
         "ID": 20,
-        "Name": "Ella Hall",
-        "Email": "ella.hall@example.com",
-        "Password": "Ell@H@ll1",
-        "Address": "777 Redwood Boulevard, Maplewood, USA"
+        "Name": "Linh",
+        "Email": "thuylinh@gmail.com",
+        "Password": null,
+        "Address": "No.44 Tran Thai Trong Street"
     }
 ]
